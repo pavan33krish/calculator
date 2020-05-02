@@ -10,6 +10,13 @@ body {
     background-color: white;
     margin: 120px auto;
 }
+@media only screen and (min-width: 600px) {
+    .container {
+        width: 90%;
+        background-color: white;
+        margin: 120px auto;
+    }
+}
 table {
     width: 100%;
     border-color: #f4f4f4;
