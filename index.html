@@ -4,11 +4,12 @@
 <head>
 <meta charset="utf-8">
 <title>Pavan's Calculator</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container"  id="mydiv" tabindex="0">
     <table border="1" cellspacing="0">
         <tr>
             <td colspan="4" id="inputLabel">0</td>
@@ -44,8 +45,28 @@
 </div>
  
 <script>
+
+    $(function() {
+   $('#mydiv').focus();
+        });
+
+
     var inputLabel = document.getElementById('inputLabel');
-     
+    $('#mydiv').on('keypress', function(event) {
+    console.log(event.key);
+    const pressedKey = event.key;
+       if (pressedKey === 'Enter') {
+            // Calculate
+            inputLabel.innerHTML = eval(inputLabel.innerHTML);
+       }
+        else if((['+','.','-','*','/'].includes(pressedKey))||(pressedKey.match(/[0-9]/))) {
+            if (inputLabel.innerHTML === '0') {
+                inputLabel.innerHTML = pressedKey;
+            } else {
+                inputLabel.innerHTML += pressedKey;   
+            }
+        }
+ });
     function pushBtn(obj) {
          
         var pushed = obj.innerHTML;
