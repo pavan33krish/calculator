@@ -12,15 +12,11 @@
     h1{
         color:#000080
     }
-    h2{
-        color:#191970
-    }
 </style>
 </head>
 <body>
    <h1 style="text-align:center;">Pavan’s Calculator</h1>
-   <h2 style="text-align:center">Click On The Input Box Everytime Before Calculating</h2>
-<div class="container"  id="mydiv" tabindex="0">
+<div class="container"  id="containerdiv" tabindex="0">
     <table border="1" cellspacing="0">
         <tr>
             <td colspan="4" id="inputLabel">0</td>
@@ -58,12 +54,17 @@
 <script>
 
     $(function() {
-   $('#mydiv').focus();
+   $('#containerdiv').focus();
         });
 
 
     var inputLabel = document.getElementById('inputLabel');
-    $('#mydiv').on('keypress', function(event) {
+    $('#containerdiv').on('keydown', function(event) {
+        console.log(event.key);
+
+    });
+
+    $('#containerdiv').on('keypress', function(event) {
     console.log(event.key);
     const pressedKey = event.key;
        if (pressedKey === 'Enter') {
@@ -98,7 +99,18 @@
                 inputLabel.innerHTML += pushed;   
             }
         }
+
+        $(function() {
+   $('#containerdiv').focus();
+        });
+
     }
+
+
+    
+    $(function() {
+   $('#containerdiv').focus();
+        });
 </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ body {
     width: 320px;
     background-color: #FFFAF0;
     margin: 120px auto;
+    margin-top: 30px;
 }
 @media only screen and (orientation: portrait) {
     .container {
