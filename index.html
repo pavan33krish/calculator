@@ -61,11 +61,17 @@
     var inputLabel = document.getElementById('inputLabel');
     $('#containerdiv').on('keydown', function(event) {
         console.log(event.key);
+        const pressedKey = event.key;
+        if (pressedKey === 'Backspace') {
+            // All Clear
+            inputLabel.innerHTML = '0';
+             
+        }
 
     });
 
     $('#containerdiv').on('keypress', function(event) {
-    console.log(event.key);
+   
     const pressedKey = event.key;
        if (pressedKey === 'Enter') {
             // Calculate
